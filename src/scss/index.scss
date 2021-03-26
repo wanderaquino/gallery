@@ -1,5 +1,5 @@
 //Aqui eu posso importar somente a referência do bootstrap, mas, deixei tudo.
 @import "~bootstrap/scss/bootstrap";
-$awesome-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font/font-awesome";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome.scss";
 @import "custom";
