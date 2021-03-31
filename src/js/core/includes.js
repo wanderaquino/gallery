@@ -1,5 +1,13 @@
 import $ from "jquery";
 
+const loadHtmlCallbacks = [];
+
+export function onLoadHtmlSuccess(callback) {
+    if(!loadHtmlCallbacks.includes(callback)) {
+        loadHtmlCallbacks.push(callback);
+    };
+};
+
 function loadIncludes(parent) {
     if(!parent) {
         parent = "body";
@@ -12,6 +20,7 @@ function loadIncludes(parent) {
                 $(element).html(data);
                 $(element).removeAttr("wm-include");
                 loadIncludes(element);
+                loadHtmlCallbacks.forEach(callback => callback(data));
             }
         })
     });
